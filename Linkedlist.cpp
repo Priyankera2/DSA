@@ -26,6 +26,25 @@ bool checkelementPresent(Node* head,int x){
     }
     return false;
 }
+
+Node* deleteHead(Node* head){
+    Node* temp=head;
+    head=head->next;
+    free(temp);
+    return head;
+
+}
+
+Node* deleteTail(Node* head){
+    Node* temp=head;
+    while(temp->next->next!=nullptr){
+          temp=temp->next;
+    }
+    delete(temp);
+    temp->next=nullptr;
+    return head;
+}
+
 int main(){
     vector<int> arr={2,4,7,8};
     Node* head=convertArr2LL(arr);
