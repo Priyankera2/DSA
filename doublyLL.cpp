@@ -15,6 +15,13 @@ class Node{
         prev=prev1;
     }
 };
+Node* deletehead(Node* head){
+    Node* temp=head;
+    head=head->next;
+    head->prev=nullptr;
+    delete(temp);
+    return head;
+}
 int main(){
      int  arr[]={1,2,3,4};
      Node* head=new Node(arr[0]);
