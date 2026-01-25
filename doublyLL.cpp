@@ -16,11 +16,26 @@ class Node{
     }
 };
 Node* deletehead(Node* head){
+    if(head==NULL||head->next==NULL){
+        return NULL;
+    }
     Node* temp=head;
     head=head->next;
     head->prev=nullptr;
     delete(temp);
     return head;
+}
+Node* deletetail(Node* head){
+    if(head==nullptr||head->next==nullptr)return NULL;
+    Node* temp=head;
+    while(temp->next->next!=nullptr){
+        temp=temp->next;
+}
+     Node* tail=temp->next;
+     temp->next=nullptr;
+     tail->prev=nullptr;
+     delete(tail);
+     return head;
 }
 int main(){
      int  arr[]={1,2,3,4};
@@ -32,6 +47,7 @@ int main(){
         prev->next=temp;
         prev=temp;
      }
+     deletetail(head);
      while(head){
         cout<<head->data<<" ";
         head=head->next;
